@@ -1,0 +1,29 @@
+- yum_repository:
+    name: docker
+    description: Docker Repository
+    baseurl: https://yum.dockerproject.org/repo/main/centos/7/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://yum.dockerproject.org/gpg
+
+
+- yum:
+    name: docker
+    state: absent
+
+- yum:
+    name: docker-common
+    state: absent
+
+- yum:
+    name: docker-selinux
+    state: absent
+
+- yum:
+    name: docker-engine
+    state: present
+
+- service:
+    name: docker
+    enabled: yes
+    state: started

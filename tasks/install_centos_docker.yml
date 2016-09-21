@@ -1,0 +1,17 @@
+
+- yum:
+    name: docker-engine
+    state: absent
+
+- yum:
+    name: docker-engine-selinux
+    state: absent
+
+- yum:
+    name: docker
+    state: present
+
+- service:
+    name: docker
+    enabled: yes
+    state: started
