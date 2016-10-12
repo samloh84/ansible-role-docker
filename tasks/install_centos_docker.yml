@@ -1,15 +1,19 @@
 
 - yum:
-    name: docker-engine
+    name: {{item}}
     state: absent
+  with_items:
+    - docker-engine
+    - docker-engine-selinux
 
 - yum:
-    name: docker-engine-selinux
-    state: absent
-
-- yum:
-    name: docker
+    name: {{item}}
     state: present
+  with_items:
+    - docker
+    - docker-common
+    - docker-selinux
+
 
 - service:
     name: docker

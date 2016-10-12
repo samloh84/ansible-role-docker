@@ -8,20 +8,20 @@
 
 
 - yum:
-    name: docker
+    name: {{item}}
     state: absent
+  with_items:
+    - docker
+    - docker-common
+    - docker-selinux
+
 
 - yum:
-    name: docker-common
-    state: absent
-
-- yum:
-    name: docker-selinux
-    state: absent
-
-- yum:
-    name: docker-engine
+    name: {{item}}
     state: present
+  with_items:
+    - docker-engine
+    - docker-engine-selinux
 
 - service:
     name: docker
