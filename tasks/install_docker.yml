@@ -8,7 +8,7 @@
 
 
 - yum:
-    name: {{item}}
+    name: "{{ item }}"
     state: absent
   with_items:
     - docker
@@ -17,7 +17,7 @@
 
 
 - yum:
-    name: {{item}}
+    name: "{{ item }}"
     state: present
   with_items:
     - docker-engine

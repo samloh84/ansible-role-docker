@@ -1,13 +1,13 @@
 
 - yum:
-    name: {{item}}
+    name: "{{ item }}"
     state: absent
   with_items:
     - docker-engine
     - docker-engine-selinux
 
 - yum:
-    name: {{item}}
+    name: "{{ item }}"
     state: present
   with_items:
     - docker
